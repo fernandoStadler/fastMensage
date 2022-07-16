@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/67f504bb87.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        body {
+            background-color: #414141;
+        }
+       
+        .open-menu{
+            margin-top:70px;
+            transition: all 1s;
+        }
+    
+        .d-none {
+            display: none;
+        }
+        .d-block {
+            display: block;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+        .default-link {
+            color: #ffffff;
+        }
+        .active_link {
+            color: #0CCF9C;
+        }
+        .nav-container {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            background-color: #202c33;
+            z-index: 0;
+        }
+        .nav-desktop {
+            width: 100vw;
+            display: flex;
+            height: 69px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 10px;
+        }
+        .nav-mobile {
+            display: none;
+            position: fixed;
+            width: 98%;
+            height: 69px;
+            background-color: #202c33;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 10px;
+            z-index: 1;
+        }
+
+        .drop-links {
+            display:none;
+            width: 100vw;
+            height: 69px;
+            background-color: #202c33;
+            z-index:0;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo {
+            color: #00a884;
+        }
+
+        .span-txt {
+            color: #FFFFFF;
+        }
+
+        .nav-menu>ul>li {
+            list-style: none;
+            display: inline;
+            padding: 0 5px;
+        }
+
+        .link {
+            text-decoration: none;
+        }
+
+        .link:hover {
+            color: #009588;
+        }
+
+        .breadcrumb {
+            margin: 10px;
+        }
+
+        .breadcrumb>i {
+            color: #4db7e0;
+        }
+
+        .breadcrumb>span {
+            color: #ffffff;
+        }
+
+        .toggle-button {
+            background-color: transparent;
+            border: none;
+            color: #027a65;
+        }
+
+        @media (max-width: 768px) {
+            .drop-links {
+            display: block;
+            }
+            .nav-container{
+                background-color: transparent;
+            }
+            .nav-desktop {
+                display: none;
+            }
+
+            .nav-mobile {
+                display: flex;
+            }
+            .nav-menu>ul>li {
+                display: block;
+                padding: 5px 0px;
+            }
+        }
+    </style>
+    <nav class="nav-container">
+        <section class="nav-desktop">
+            <div class="icon-text">
+                <i class="fa-solid fa-envelope-circle-check logo fa-2x"></i>
+                <span class="span-txt">Nome da aplicação aqui</span>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#" class="link active_link">Mensagem Rapida</a></li>
+                    <li><a href="#" class="link default-link">Agenda</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="nav-mobile">
+            <div class="icon-text">
+                <i class="fa-solid fa-envelope-circle-check logo fa-2x"></i>
+                <span class="span-txt">Nome da aplicação aqui</span>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><button class="toggle-button" data-toggle><i class="fa-solid fa-bars fa-2x"></i></button></li>
+                </ul>
+            </div>
+        </section>
+        <div class="drop-links" data-mobile>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#" class="link active_link">Mensagem Rapida</a></li>
+                    <li><a href="#" class="link default-link">Agenda</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="breadcrumb">
+            <i class="fa-solid fa-check-double"></i>
+            <span>Mensagem Rápida</span>
+        </section>
+    </main>
+    <script>
+        const btn_toggle = document.querySelector('[data-toggle]')
+        const links = document.querySelector('[data-mobile]')
+        
+        function toggleMenu(){
+            if(links.classList.contains('open-menu')){
+                links.classList.remove('open-menu')
+            } else{
+            links.classList.add('open-menu')
+        }
+    }
+        btn_toggle.addEventListener('click',toggleMenu);
+
+    </script>
+</body>
+</html>
